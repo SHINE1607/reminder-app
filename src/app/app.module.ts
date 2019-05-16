@@ -26,7 +26,9 @@ import {CdkTableModule} from '@angular/cdk/table';
 
 import { ReminderService } from './shared/reminder.service'  
 import { AmazingTimePickerModule } from 'amazing-time-picker';
-import { UpdateComponent } from './update/update.component'  
+import { UpdateComponent } from './update/update.component';
+import { NotifyComponent } from './notify/notify.component' 
+ 
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { UpdateComponent } from './update/update.component'
     CreateComponent,
     ViewComponent,
     UpdateComponent,
+    NotifyComponent,
     
   ],
   imports: [
@@ -58,6 +61,7 @@ import { UpdateComponent } from './update/update.component'
     CdkTableModule
   ],
   providers: [ReminderService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents : [ NotifyComponent ]
 })
 export class AppModule { }

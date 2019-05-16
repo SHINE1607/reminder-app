@@ -5,6 +5,8 @@ import { Reminder } from '../../../server/model/reminder';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { map } from 'rxjs/operators';
 import * as moment from 'moment';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { NotifyComponent } from '../notify/notify.component';
 //to share  data between the unrelated components
 
 
@@ -14,8 +16,8 @@ import * as moment from 'moment';
   export class ReminderService{ 
     ReminderService: string;
     currentReminderEdit;
-    
-      constructor(private http: HttpClient){
+    timeForReminder;
+      constructor(private http: HttpClient, private dialog : MatDialog){
         
       }
       
@@ -38,15 +40,69 @@ import * as moment from 'moment';
       }
 
       public timeCheck(){
-        this.initialCheck();
+        //year check
+        setTimeout(() => {
+          this.finalCheck();
+        }, 60000)
       }
+          
+      public finalCheck(){
+        var RemArr1 = [];
+        var RemArr2 = [];
 
-      public initialCheck(){
         var date = new Date();
-        var hour = date.getHours();
+        var curYear = date.getFullYear();
+        var curMon = date.getMonth();
+        var curDay = date.getDay();
+        var curHour = date.getHours();
+        var curMin = date.getMinutes();
+        Reminder.forEach(rem =>{
+          if(rem.year == curYear){
+            RemArr1.push(rem);
+          }
+        });
+        if(RemArr1.length){
+              RemArr2 = RemArr1;
+              RemArr1 = [];
         
-      }
-      
+              RemArr2.forEach(rem =>{
+                if(rem.month == curMon){
+                  RemArr1.push(rem);
+                }
+              });
+              if(RemArr1.length){
+                RemArr2 = RemArr1;
+                RemArr1 = [];
+                RemArr2.forEach(rem =>{
+                  if(rem.day == curDay){
+                    RemArr1.push(rem);
+                  }
+                });
+              }if(RemArr1.length){
+                RemArr2 = RemArr1;
+                RemArr1 = [];
+                RemArr2.forEach(rem =>{
+                  if(rem.hour == curHour){
+                    RemArr1.push(rem);
+                  }
+                });
+              }if(RemArr1.length){
+                RemArr2 = RemArr1;
+                RemArr1 = [];
 
-    
+              }RemArr2.forEach(rem =>{
+                  if(rem.minute == curMin){
+                    RemArr1.push(rem);
+                  }
+                });
+                if (RemArr1.length){
+                  this.timeForReminder = RemArr1[0];
+                  this.dialog.open(NotifyComponent)
+                }
+            
+            }
+          
+         
+    }
+          
 }

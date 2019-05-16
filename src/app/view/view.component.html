@@ -1,0 +1,21 @@
+
+<h1 class = "users-title"><span style = "font-size:200%">Reminders</span></h1>
+
+
+<div style= "margin-left:20vw;">
+    <!-- passing the rentals array into the rental-list-item component html -->
+    <mat-card  style = "width: 60vw; color: white;" >
+        <mat-card-content *ngFor = "let reminder  of reminderData; let i = index">
+            <div class = "post-tile">
+                <h2>{{reminder.description}}</h2>
+                <p>Date : {{reminder.day}}/{{reminder.month}}/{{reminder.year}}</p>
+                <p>Time : {{reminder.hour}}:{{reminder.minute}}</p>
+                <button mat-raised-button color="primary" (click) = "letsUpdate(reminder)">Update</button>
+                <button mat-raised-button color="warn" (click) = "letsDelete(reminder)" style ="margin :1em">Delete</button>
+            </div>
+            
+
+        </mat-card-content>
+        
+      </mat-card>
+</div>

@@ -1,0 +1,259 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    margin :0;
+    font-family: 'Raleway', sans-serif;
+    color:white;
+    background-color: rgb(36, 40, 46);
+
+}
+
+.sidenav {
+    height: 100%;
+    width: 6vw;
+    position: fixed;
+    left: 0;
+    top :0;
+    background-color: rgb(0, 148, 148);
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition-duration:0.6s;
+    
+  }
+  
+  .sidenav a {
+    text-align: center;
+    padding:  0.5em 0.5em 0.5em 0.5em;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition-duration : 0.4s;
+    border-radius: 0.1em;
+    transition-duration:0.4s;
+    margin: 0.2em;
+ 
+  }
+
+  
+
+ .feed{ 
+    font-size: 70%;
+    display:block;
+    opacity:0;
+    transform:translateY(-0.5em);
+    transition-duration:0.6s;
+
+ }
+
+.messages{ 
+    font-size: 70%;
+    display:block;
+    opacity:0;
+    transform:translateY(-0.5em);
+    transition-duration:0.6s;
+ }
+  .sidenav a:hover {
+    background-color: rgb(0, 109, 109);
+    
+  }
+ i{
+     transition-duration: 0.4s;
+ }
+
+  a:hover .feed{
+    opacity:1;
+    transform:translateY(0.5em);
+  }
+
+  a:hover .messages{
+    opacity:1;
+    transform:translateY(0.5em);
+  }
+  
+   
+
+
+  div.parent {  
+    pointer-events: none;
+}
+
+div.child1, div.child2, div.child3 {
+    pointer-events: auto;
+}
+
+div.parent:hover {
+   width : 10vw;
+}   
+
+a{
+  color:white;
+}
+.users-title{
+  font-weight:800;
+  color:white;
+  margin-left:10vw;
+  animation-name: example1; /* Safari 4.0 - 8.0 */
+  animation-duration: 0.5s; 
+}
+@keyframes example1 {
+  from {opacity:0;
+    transform:translateX(-2vw);
+  }
+  to {opacity:1;
+    transform:translateX(0);
+  }
+}
+
+.user-list{
+  margin-left:7vw;
+  list-style-type:none;
+  
+  
+}
+
+.user-tile{
+  background-color:  rgb(45, 53, 65);
+  margin:1em;
+  padding:1em 3em 1em 3em;
+  margin-right:3em;
+  transition-duration:0.3s;
+  border-radius: 0.3em;
+  animation-name: example2; /* Safari 4.0 - 8.0 */
+  animation-duration: 0.5s; 
+}
+
+.detail-tile{
+  background:linear-gradient(to right bottom, rgb(49, 57, 68), rgb(45, 53, 65));
+  margin:1em 0.5em 1em 0.5em;
+  padding:1.5em 1em 1.5em 1em;
+  margin-right:3em;
+  transition-duration:0.3s;
+  border-radius: 0.3em;
+  animation-name: example2; /* Safari 4.0 - 8.0 */
+  animation-duration: 0.5s; 
+}
+@keyframes example {
+  from {opacity:0;
+    transform:translateX(-2vw);
+  }
+  to {opacity:1;
+    transform:translateX(0);
+  }
+}
+
+
+
+.user-tile:nth-child(1){
+  animation-delay: 0;
+
+}
+.user-tile:nth-child(2){
+  animation-delay: 0.1s;
+
+}
+.user-tile:nth-child(3){
+  animation-delay: 0.2s;
+
+}
+.user-tile:nth-child(4){
+  animation-delay: 0.3s;
+
+}
+.user-tile:nth-child(5){
+  animation-delay: 0.4s;
+
+}
+ .user-tile:nth-child(6){
+  animation-delay: 0.5s;
+
+}
+.user-tile:nth-child(7){
+  animation-delay: 0.6s;
+
+}
+.user-tile:nth-child(8){
+  animation-delay: 0.7s;
+
+}
+.user-tile:nth-child(9){
+  animation-delay: 0.9s;
+}
+
+.user-tile:nth-child(10){
+  animation-delay: 1;
+
+}
+ .user-tile:nth-child(1){
+  animation-delay: 1.1;
+
+}
+
+
+.post-tile{
+  background-color:rgb(49, 57, 68);
+  margin :0.5em;
+  padding : 2em 1em 2em 1em;
+  border-radius :0.3em;
+  transition-duration :0.2s;
+  margin-left :0;
+}
+.post-tile:hover {
+  transform  : scale(1.01,1.01);
+}
+
+@keyframes example2 {
+  from {
+    opacity:0.5;
+    transform:translateX(-2vw);
+  }
+  to {opacity:1;
+    transform:translateX(0vw);
+  }
+}
+@media only screen and (max-width: 1200px) {
+    .sidenav {
+        width: 10vw;
+      }
+      div.parent:hover {
+        width : 15vw;
+     }   
+     .users-title, .user-list{
+      
+      margin-left:12vw;
+    }
+    .user-list{
+      
+      margin-left:9vw;
+    }
+
+  }
+  @media only screen and (max-width: 700px) {
+    .sidenav {
+        width: 15vw;
+      }
+      div.parent:hover {
+        width : 20vw;
+     }   
+     .feed{
+         font-size:55%;
+     }
+     .messages{
+        font-size:55%;
+    }
+    .users-title, .user-list{
+      
+      margin-left:17vw;
+    }
+    .user-list{
+      
+      margin-left:14vw;
+    }
+   
+  }
+
+  
+  
+
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
